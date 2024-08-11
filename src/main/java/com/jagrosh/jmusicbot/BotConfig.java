@@ -49,6 +49,7 @@ public class BotConfig
     private OnlineStatus status;
     private Activity game;
     private Config aliases, transforms;
+    private boolean kanyeFilter;
 
     private boolean valid = false;
     
@@ -98,6 +99,7 @@ public class BotConfig
             aliases = config.getConfig("aliases");
             transforms = config.getConfig("transforms");
             skipratio = config.getDouble("skipratio");
+            kanyeFilter = config.getBoolean("kanyefilter");
             dbots = owner == 113156185389092864L;
             
             // we may need to write a new config file
@@ -183,7 +185,11 @@ public class BotConfig
                 ? "token = BOT_TOKEN_HERE\r\nowner = 0 // OWNER ID" 
                 : original.substring(original.indexOf(START_TOKEN)+START_TOKEN.length(), original.indexOf(END_TOKEN)).trim();
     }
-    
+
+    public boolean isKanyeFilter() {
+        return kanyeFilter;
+    }
+
     private static Path getConfigPath()
     {
         Path path = OtherUtil.getPath(System.getProperty("config.file", System.getProperty("config", "config.txt")));
