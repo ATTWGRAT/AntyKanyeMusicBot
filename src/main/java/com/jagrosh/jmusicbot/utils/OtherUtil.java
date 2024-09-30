@@ -169,7 +169,10 @@ public class OtherUtil
 
     public static boolean checkForKanye(AudioTrack track)
     {
-        return StringUtils.containsAnyIgnoreCase(track.getInfo().title, "Kanye", "Yeezy", "Yeezus", "¥$") || StringUtils.containsAnyIgnoreCase(track.getInfo().author, "Kanye", "Yeezy", "Yeezus", "¥$");
+        return StringUtils.containsAnyIgnoreCase(track.getInfo().title, "Kanye", "Yeezy", "Yeezus", "¥$", " Ye,", " Ye ")
+                || StringUtils.containsAnyIgnoreCase(track.getInfo().author, "Kanye", "Yeezy", "Yeezus", "¥$", " Ye,", " Ye ")
+                || StringUtils.startsWithIgnoreCase(track.getInfo().title, "Ye ")
+                || StringUtils.startsWithIgnoreCase(track.getInfo().title, "Ye,");
     }
     
     /**
